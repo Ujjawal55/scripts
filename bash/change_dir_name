@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Author: Ujjawal Kumar
+# Date of Creation: 2024-10-29
+# Description: change the name of the directoried in a directory
+# Date of Updation: 2024-10-29
+# Motivation: want to change all the directories python course downloaded for neera
+
+# this is the final name of the directries
+
+message="WARNING!!!!!!!!!!"
+echo "$message"
+read -p "do u want to continue(y/n)?  " choice
+
+if [ "$choice" == "y" ]; then
+	for dir in */; do
+		var1=$(echo "$dir" | cut -d'-' -f1)
+		trimmed1=$(echo "$var1" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+		var2=$(echo "$dir" | rev | cut -d'-' -f1 | rev)
+		trimmed2=$(echo "$var2" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+		mv "$dir" "$trimmed1-$trimmed2"
+	done
+else
+	echo "Byeeeeeeeeeeeeeeeeeeeee"
+fi

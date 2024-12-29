@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# navigation to the directory using the fzf
+
+function main() {
+    selected=$(find ~/Desktop ~/.config ~/github -mindepth 1 -maxdepth 2 -type d | fzf)
+
+    if [[ -z $selected ]]; then
+        return
+    else
+        cd "$selected" || return
+    fi
+}
+
+main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
